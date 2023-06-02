@@ -29,7 +29,7 @@ var All_Vehicles []Vehicle
 
 func ReadFile() {
 	// Abrir o arquivo JSON
-	file, err := os.Open("C:/documents/JSON/vehicles.json")
+	file, err := os.Open("data/vehicles.json")
 	if err != nil {
 		log.Fatal(err)
 	}
