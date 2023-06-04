@@ -1,4 +1,4 @@
-module github.com/mateuscavalcant/rest-api-go
+module rest-api-go
 
 go 1.20
 
