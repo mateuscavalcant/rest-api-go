@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"ProjetoGo/api/data"
-	"ProjetoGo/api/handlers"
+	"rest-api-go/data"
+	"rest-api-go/handlers"
 
 	"github.com/gorilla/mux"
 )
