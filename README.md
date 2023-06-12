@@ -9,7 +9,7 @@ Este projeto é um exemplo de API em Go que lida com operações CRUD (Create, R
 Certifique-se de ter o Go instalado em sua máquina antes de executar este projeto e instale o seguinte pacote:
 
 ```sh
-$ go get -u github.com/gorilla/mux
+go get github.com/gorilla/mux
 ```
 
 ## Utilização
