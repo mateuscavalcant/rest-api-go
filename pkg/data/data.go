@@ -4,38 +4,23 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+	"rest-api-go/pkg/models"
 	"strconv"
 )
 
-type Vehicle struct {
-	Id     int    `json:"id"`
-	Brand  string `json:"brand"`
-	Model  string `json:"model"`
-	Volume int    `json:"volume"`
-	Weight int    `json:"weight"`
-	CO2    int    `json:"co2"`
-}
 
-type VehicleData struct {
-	Id     map[string]int    `json:"id"`
-	Brand  map[string]string `json:"brand"`
-	Model  map[string]string `json:"model"`
-	Volume map[string]int    `json:"volume"`
-	Weight map[string]int    `json:"weight"`
-	CO2    map[string]int    `json:"co2"`
-}
 
-var All_Vehicles []Vehicle
+var All_Vehicles []models.Vehicle
 
 func ReadFile() {
 	// Abrir o arquivo JSON
-	file, err := os.Open("data/vehicles.json")
+	file, err := os.Open("pkg/data/vehicles.json")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer file.Close()
 
-	var Vehicle_Data VehicleData
+	var Vehicle_Data models.VehicleData
 
 	// Decodificar o arquivo JSON para a struct VehicleData
 	decoder := json.NewDecoder(file)
@@ -53,7 +38,7 @@ func ReadFile() {
 		weight := Vehicle_Data.Weight[strconv.Itoa(i)]
 		co2 := Vehicle_Data.CO2[strconv.Itoa(i)]
 
-		vehicle := Vehicle{
+		vehicle := models.Vehicle{
 			Id:     id,
 			Brand:  brand,
 			Model:  model,

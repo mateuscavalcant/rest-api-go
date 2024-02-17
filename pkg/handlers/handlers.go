@@ -6,7 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"ProjetoGo/api/data"
+	"rest-api-go/pkg/data"
+	"rest-api-go/pkg/models"
 
 	"github.com/gorilla/mux"
 )
@@ -22,7 +23,7 @@ func ReturnCarsByBrand(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	car_brand := params["brand"]
 
-	var cars []data.Vehicle
+	var cars []models.Vehicle
 	for _, car := range data.All_Vehicles {
 		if car.Brand == car_brand {
 			cars = append(cars, car)
@@ -37,7 +38,7 @@ func ReturnCarsByModel(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	car_model := vars["model"]
 
-	var cars []data.Vehicle
+	var cars []models.Vehicle
 	for _, car := range data.All_Vehicles {
 		if car.Model == car_model {
 			cars = append(cars, car)
@@ -54,7 +55,7 @@ func ReturnCarsByVolume(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Unable to convert to string")
 	}
-	var cars []data.Vehicle
+	var cars []models.Vehicle
 	for _, car := range data.All_Vehicles {
 		if car.Volume == car_volume {
 			cars = append(cars, car)
@@ -71,7 +72,7 @@ func ReturnCarsByWeight(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Unable to convert to string")
 	}
-	var cars []data.Vehicle
+	var cars []models.Vehicle
 	for _, car := range data.All_Vehicles {
 		if car.Weight == car_weight {
 			cars = append(cars, car)
@@ -88,7 +89,7 @@ func ReturnCarsByCO2(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Unable to convert to string")
 	}
-	var cars []data.Vehicle
+	var cars []models.Vehicle
 	for _, car := range data.All_Vehicles {
 		if car.CO2 == car_co2 {
 			cars = append(cars, car)
@@ -105,7 +106,7 @@ func ReturnCarsById(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Unable to convert to string")
 	}
-	var cars []data.Vehicle
+	var cars []models.Vehicle
 	for _, car := range data.All_Vehicles {
 		if car.Id == car_id {
 			cars = append(cars, car)
@@ -117,7 +118,7 @@ func ReturnCarsById(w http.ResponseWriter, r *http.Request) {
 
 // CreateCar cria um novo carro.
 func CreateCar(w http.ResponseWriter, r *http.Request) {
-	var newCar data.Vehicle
+	var newCar models.Vehicle
 	json.NewDecoder(r.Body).Decode(&newCar)
 	data.All_Vehicles = append(data.All_Vehicles, newCar)
 	w.WriteHeader(http.StatusOK)
@@ -131,7 +132,7 @@ func UpdateCar(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Unable to convert to string")
 	}
-	var UpdateCar data.Vehicle
+	var UpdateCar models.Vehicle
 	json.NewDecoder(r.Body).Decode(&UpdateCar)
 	for k, v := range data.All_Vehicles {
 		if v.Id == car_id {

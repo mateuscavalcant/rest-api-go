@@ -3,9 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
-
-	"rest-api-go/data"
-	"rest-api-go/handlers"
+	"rest-api-go/pkg/data"
+	"rest-api-go/pkg/handlers"
 
 	"github.com/gorilla/mux"
 )
