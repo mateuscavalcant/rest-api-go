@@ -1,7 +1,5 @@
 # REST API usando Go 
 
-<img align="right" width="159px" src="https://i0.wp.com/cdn-images-1.medium.com/max/1200/1*lSUb1T4YW1td0UskwsGZ1w.gif?w=1920&ssl=1">
-
 
 Este projeto é um exemplo de API em Go que lida com operações CRUD (Create, Read, Update, Delete) em uma coleção de carros. A API é implementada usando o pacote github.com/gorilla/mux para lidar com as rotas HTTP.
 
@@ -53,5 +51,3 @@ Atualiza um carro existente com base no ID fornecido.
 - DELETE /cars/{id}
 Remove um carro existente com base no ID fornecido.
 
-## Contribuição
-Sinta-se à vontade para contribuir com este projeto. Você pode abrir uma issue para relatar problemas ou sugerir melhorias. Além disso, pull requests são bem-vindos.
